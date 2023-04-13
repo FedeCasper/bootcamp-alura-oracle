@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+<body>
+
+     <h1>Texto, botón, evento</h1>
+     <label>
+          <input type="number" name="" id="" placeholder="Ingrese un número">
+     </label>
+     <button>Verificar</button>
+
+     <script>
+          function numeroAleatorio(num){
+               return Math.round(Math.random()*num)
+          }
+          let numeroIncognito = numeroAleatorio(10)
+          console.log(numeroIncognito);
+          let input = document.querySelector('input')
+          let boton = document.querySelector('button')
+          console.log(boton);
+          let intento = 1;
+
+          function imprimir (){
+               if( numeroIncognito === parseInt(input.value)){
+                    alert("acertaste intento nro. " + intento);
+               }else{
+                    alert("pifiaste intento nro. " + intento);
+                    if(intento == 3){
+                         alert("Perdiste, hiciste 3 intentos, el numero era " + numeroIncognito)
+                         boton.disabled = true
+                    }
+               }
+               intento++
+          }
+
+          boton.onclick = imprimir
+
+     </script>
+     
+</body>
+</html>
