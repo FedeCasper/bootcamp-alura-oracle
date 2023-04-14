@@ -12,38 +12,70 @@
      <label>
           <input type="number" name="" id="" placeholder="Ingrese un número">
      </label>
-     <button>Verificar</button>
+     <button id="btnVerificar">Verificar</button>
+     <button id="btnGenerar">Generar Números</button>
+
+          <div id="1"></div>
 
      <script>
-          function numeroAleatorio(num){
-               return Math.round(Math.random()*num)
+
+          let numeroIncognito = []
+
+          // let array = new Array(4).fill("").map(element => Math.ceil(Math.random()*10))
+          // console.log(array);
+
+          let div1 = document.getElementById('1')
+
+          function generarNumeroAleatorio(){
+               div1.innerHTML = ""
+               numeroIncognito = []
+                    while(numeroIncognito.length < 4){
+                         let aux = Math.ceil(Math.random()*10)
+                         if(!numeroIncognito.includes(aux)){
+                              numeroIncognito.push(aux)
+                         }
+                    }
+               console.log(numeroIncognito);
+
+               for(let i = 0 ; i < 4 ; i++){
+                    div1.innerHTML += `<p id="p${i}">?<p>`
+               }
           }
-          let numeroIncognito = numeroAleatorio(10)
-          console.log(numeroIncognito);
+          
+          
+          let contenedorNumeros = document.getElementById('contenedorNumeros')
+
           let input = document.querySelector('input')
           input.focus()
-          let boton = document.querySelector('button')
+          let botonVerificar = document.querySelector('#btnVerificar')
+          let botonGenerar = document.querySelector('#btnGenerar')
           let titulo = document.querySelector('h1')
-          console.log(boton);
-          let intento = 1;
+          console.log(botonVerificar);
+          let intento = 0;
 
           function imprimir (){
-               if( numeroIncognito === parseInt(input.value)){
+               let p1 = document.getElementById('1')
+               let p2 = document.getElementById('2')
+               let p3 = document.getElementById('3')
+               let p4 = document.getElementById('4')
+               if( numeroIncognito[intento] === parseInt(input.value)){
                     alert("acertaste intento nro. " + intento);
+                    p1.innerText= numeroIncognito[intento]
                }else{
                     alert("pifiaste intento nro. " + intento);
                     input.value = ""
                     input.focus()
-                    if(intento == 3){
+                    if(intento == 10){
                          alert("Perdiste, hiciste 3 intentos, el numero era " + numeroIncognito)
-                         boton.disabled = true
+                         botonVerificar.disabled = true
                          titulo.innerText = "Refresque la página para volver a jugar (F5)"
                     }
                }
                intento++
           }
 
-          boton.onclick = imprimir
+          botonVerificar.onclick = imprimir
+          botonGenerar.onclick = generarNumeroAleatorio
 
      </script>
      
