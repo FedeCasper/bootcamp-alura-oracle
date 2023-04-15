@@ -12,31 +12,7 @@
 
      <p>De alguna forma crear una función que llene un array de número sin repetir</p>
 
-     <script>
-
-          function llenarArray (cantidad){
-               let arrayNumeros = [];
-               let contador = 1;
-
-               while(contador <= cantidad){
-                    let encontrado = false
-                    let numeroSecreto = Math.round(Math.random()*10)
-                    for(let i = 0 ; i < arrayNumeros.length ; i++){
-                         if(numeroSecreto == arrayNumeros[i]){
-                              encontrado = true
-                              break;
-                         }
-                    }
-                    if(encontrado == false){
-                         arrayNumeros.push(numeroSecreto)
-                         contador++
-                    }
-               }
-               return arrayNumeros
-          }
-          let secretos = llenarArray(5)
-          console.log(secretos);
-     </script>
+<script src="./validacion_duplicados.js"></script>
 
 </body>
 </html>

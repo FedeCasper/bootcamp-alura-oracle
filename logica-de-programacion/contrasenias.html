@@ -5,40 +5,13 @@
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Document</title>
+     <title>Contraseñas</title>
 </head>
 
 <body>
+     <h1>Contraseñas</h1>
 
-     <script>
-
-          var inicioDeSesionRegistrado = "alura";
-          var contrasenhaRegistrada = "alura321";
-
-          for (var intento = 1; intento <= 3; intento++) {
-               var inicioDeSesionIngresado = prompt("Ingrese su usuario");
-               var contrasenhaIngresada = prompt("Ingrese su contraseña");
-
-               if (inicioDeSesionRegistrado == inicioDeSesionIngresado && contrasenhaRegistrada == contrasenhaIngresada) {
-                    alert("Bienvenido al sistema " + inicioDeSesionIngresado);
-                    break;
-               } else {
-                    if(intento == 3){
-                         alert("Ud hizo 3 intento, espere 1 hr para volver a intentar")
-                    }else{
-                         alert("Inicio de sesión inválido. Favor intente de nuevo, le quedan " + (3 - intento) + " intento/s");
-                    }
-                    
-               }
-
-          }
-
-          
-
-
-
-
-     </script>
+<script src="./contrasenias.js"></script>
 
 </body>
 
