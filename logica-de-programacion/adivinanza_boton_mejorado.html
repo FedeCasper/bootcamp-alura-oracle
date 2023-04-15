@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Document</title>
 </head>
+
 <body>
+
+     <!-- NO TERMINADO, TIENE UNA FALLA, SÓLO TOMA EL PRIMER NÚMERO -->
 
      <h1>Adivina el número secreto (???), tienes 3 intentos</h1>
      <label>
@@ -15,36 +19,31 @@
      <button id="btnVerificar">Verificar</button>
      <button id="btnGenerar">Generar Números</button>
 
-          <div id="1"></div>
+     <div id="1"></div>
 
      <script>
 
           let numeroIncognito = []
 
-          // let array = new Array(4).fill("").map(element => Math.ceil(Math.random()*10))
-          // console.log(array);
-
           let div1 = document.getElementById('1')
 
-          function generarNumeroAleatorio(){
+          function generarNumeroAleatorio() {
                div1.innerHTML = ""
                numeroIncognito = []
-                    while(numeroIncognito.length < 4){
-                         let aux = Math.ceil(Math.random()*10)
-                         if(!numeroIncognito.includes(aux)){
-                              numeroIncognito.push(aux)
-                         }
+               while (numeroIncognito.length < 4) {
+                    let aux = Math.ceil(Math.random() * 10)
+                    if (!numeroIncognito.includes(aux)) {
+                         numeroIncognito.push(aux)
                     }
+               }
                console.log(numeroIncognito);
 
-               for(let i = 0 ; i < 4 ; i++){
+               for (let i = 0; i < 4; i++) {
                     div1.innerHTML += `<p id="p${i}">?<p>`
                }
           }
-          
-          
-          let contenedorNumeros = document.getElementById('contenedorNumeros')
 
+          let contenedorNumeros = document.getElementById('contenedorNumeros')
           let input = document.querySelector('input')
           input.focus()
           let botonVerificar = document.querySelector('#btnVerificar')
@@ -52,20 +51,57 @@
           let titulo = document.querySelector('h1')
           console.log(botonVerificar);
           let intento = 0;
+          let intento2 = 0;
 
-          function imprimir (){
-               let p1 = document.getElementById('1')
-               let p2 = document.getElementById('2')
-               let p3 = document.getElementById('3')
-               let p4 = document.getElementById('4')
-               if( numeroIncognito[intento] === parseInt(input.value)){
+          function primerIntento() {
+               let p0 = document.getElementById('p0')
+               if (numeroIncognito[0] === parseInt(input.value)) {
                     alert("acertaste intento nro. " + intento);
-                    p1.innerText= numeroIncognito[intento]
-               }else{
+                    p0.innerText = numeroIncognito[0]
+               } else {
+                    alert("qui pifiaste intento nro. " + intento);
+                    input.value = ""
+                    input.focus()
+                    if (intento == 10) {
+                         alert("Perdiste, hiciste 3 intentos, el numero era " + numeroIncognito)
+                         botonVerificar.disabled = true
+                         titulo.innerText = "Refresque la página para volver a jugar (F5)"
+                    }46
+               }
+               intento2 = 1
+               console.log(intento);
+          }
+
+          console.log(intento);
+          function segundoIntento() {
+               let p1 = document.getElementById('p1')
+               if (numeroIncognito[1] === parseInt(input.value)) {
+                    alert("acertaste intento nro. " + intento);
+                    p1.innerText = numeroIncognito[1]
+               } else {
+                    alert("cuack! pifiaste intento nro. " + intento);
+                    input.value = ""
+                    input.focus()
+                    if (intento == 10) {
+                         alert("Perdiste, hiciste 3 intentos, el numero era " + numeroIncognito)
+                         botonVerificar.disabled = true
+                         titulo.innerText = "Refresque la página para volver a jugar (F5)"
+                    }
+               }
+               intento++
+               
+          }
+
+          function tercerIntento() {
+               let p2 = document.getElementById('p2')
+               if (numeroIncognito[2] === parseInt(input.value)) {
+                    alert("acertaste intento nro. " + intento);
+                    p2.innerText = numeroIncognito[2]
+               } else {
                     alert("pifiaste intento nro. " + intento);
                     input.value = ""
                     input.focus()
-                    if(intento == 10){
+                    if (intento == 10) {
                          alert("Perdiste, hiciste 3 intentos, el numero era " + numeroIncognito)
                          botonVerificar.disabled = true
                          titulo.innerText = "Refresque la página para volver a jugar (F5)"
@@ -74,10 +110,38 @@
                intento++
           }
 
-          botonVerificar.onclick = imprimir
+          function cuartoIntento() {
+               let p3 = document.getElementById('p3')
+               if (numeroIncognito[3] === parseInt(input.value)) {
+                    alert("acertaste intento nro. " + intento);
+                    p3.innerText = numeroIncognito[3]
+               } else {
+                    alert("pifiaste intento nro. " + intento);
+                    input.value = ""
+                    input.focus()
+                    if (intento == 10) {
+                         alert("Perdiste, hiciste 3 intentos, el numero era " + numeroIncognito)
+                         botonVerificar.disabled = true
+                         titulo.innerText = "Refresque la página para volver a jugar (F5)"
+                    }
+               }
+               intento++
+          }
+
+          if (intento === 0) {
+               botonVerificar.onclick = primerIntento
+          } else if (intento2 === 1) {
+               botonVerificar.onclick = segundoIntento
+          } else if (intento === 2) {
+               botonVerificar.onclick = tercerIntento
+          } else if (intento === 3) {
+               botonVerificar.onclick = cuartoIntento
+          }
+
           botonGenerar.onclick = generarNumeroAleatorio
 
      </script>
-     
+
 </body>
+
 </html>
