@@ -1,0 +1,17 @@
+body{
+     background-color: antiquewhite;
+}
+header{
+     border: 3px solid #9B8D92;
+}
+nav li{
+     display: inline;
+     margin: 0 0 0  15px;
+}
+nav a{
+     text-transform: uppercase;
+     color: black;
+     font-weight: bold;
+     font-size: 22px;
+     text-decoration: none;
+}
