@@ -12,15 +12,12 @@ function dibujarCuadrado(x,y, color, borde) {
 
 }
 
-
-dibujarCuadrado(0,0, "cyan", "black")
-dibujarCuadrado(50,0, "lightblue")
-dibujarCuadrado(100,0, "blue")
-dibujarCuadrado(0,50,"red")
-dibujarCuadrado(0,100, "yellow")
-dibujarCuadrado(0,150, "green")
-
-
-
+let contador = 0;
+while(contador < 800){
+     dibujarCuadrado(contador,0, "cyan", "black")
+     dibujarCuadrado(contador,50, "blueviolet", "black")
+     dibujarCuadrado(contador,100, "blue", "black")
+     contador = contador + 50
+}
 
 
