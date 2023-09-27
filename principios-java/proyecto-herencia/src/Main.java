@@ -7,9 +7,9 @@ public class Main {
         federico.setSalario(6000.00);
 
         Gerente newGerente = new Gerente();
-        newGerente.setNombre("Lider");
-        newGerente.setDocumento("203081932");
-        newGerente.setSalario(5000.00);
+        //newGerente.setNombre("Lider");
+        //newGerente.setDocumento("203081932");
+        //newGerente.setSalario(5000.00);
         newGerente.setClave("secreta");
         boolean autenticado = newGerente.iniciarSesion("secreta");
 
@@ -18,21 +18,28 @@ public class Main {
         funcionario.setSalario(2000);
 
         Gerente gerenteJimena = new Gerente();
-        gerenteJimena.setNombre("Jimena");
-        gerenteJimena.setSalario(10000);
+        //gerenteJimena.setNombre("Jimena");
+        //gerenteJimena.setSalario(10000);
 
         Contador alexis = new Contador();
         alexis.setSalario(5000.00);
 
         ControlBonificacion controlBonificacion = new ControlBonificacion();
         controlBonificacion.registrarSalario(funcionario);
-        controlBonificacion.registrarSalario(gerenteJimena);
+        //controlBonificacion.registrarSalario(gerenteJimena);
         controlBonificacion.registrarSalario(alexis);
 
         CuentaCorriente cc = new CuentaCorriente(1,1);
         CuentaAhorros ca = new CuentaAhorros(2,3);
         cc.depositar(2000);
         cc.transfiere(1000, ca);
+
+        SistemaInterno sistema = new SistemaInterno();
+        Gerente gerente1 = new Gerente();
+        Administrador admin = new Administrador();
+
+        sistema.autentica(gerente1);
+        sistema.autentica(admin);
 
         System.out.println();
         System.out.println("Bonificiación del funcionario = " + federico.getBonificacion());

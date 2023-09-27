@@ -22,16 +22,6 @@ public abstract class Funcionario {
     public int getTipo() {return tipo;}
     public void setTipo(int tipo) {this.tipo = tipo;}
 
-    public double getBonificacion (){
-        // Si tipo es 0 es gerente
-        // Si tipo es 1 es funcionario
-        if(this.tipo == 0){
-            return this.salario * 0.05;
-        } else if(this.tipo == 1){
-            return this.salario;
-        } else {
-         return 0;
-        }
-    }
+    public abstract double getBonificacion ();
 
 }

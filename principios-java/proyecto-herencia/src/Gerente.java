@@ -1,25 +1,18 @@
-public class Gerente extends Funcionario {
+public class Gerente extends Funcionario implements Autenticable {
 
-    private String clave;
-
-    public void setClave (String clave){
-        this.clave = clave;
-    }
-
-    public boolean iniciarSesion(String clave){
-        if(clave == "secreta"){
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    // Sobreescribiendo un método
+    @Override
     public double getBonificacion(){
-        return super.getSalario() + super.getBonificacion();
+        return 2000;
     }
 
-    public boolean iniciarSesion(String clave, int contraseña){
-        return true;
+
+    @Override
+    public void setClave(String clave) {
+
+    }
+
+    @Override
+    public boolean iniciarSesion(String clave) {
+        return false;
     }
 }

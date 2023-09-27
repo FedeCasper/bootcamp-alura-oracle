@@ -1,14 +1,17 @@
 import java.util.Objects;
 
-public class Cliente implements Autenticable{
+public class Administrador extends Funcionario implements Autenticable  {
 
-    private String nombre;
-    private String documento;
-    private String telefono;
+    private String clave;
     private AutenticacionUtil util;
 
-    public Cliente(AutenticacionUtil util) {
-        this.util = new AutenticacionUtil();
+    public Administrador(AutenticacionUtil util) {
+        this.util = util;
+    }
+
+    @Override
+    public double getBonificacion() {
+        return this.getSalario();
     }
 
     @Override
