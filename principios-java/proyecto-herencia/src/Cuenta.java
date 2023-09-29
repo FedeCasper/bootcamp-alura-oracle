@@ -15,15 +15,20 @@ public abstract class Cuenta {
 
     public abstract void depositar(double deposito);
 
-    public void saca(double valor){
-        if(this.saldo >= valor){
-            this.saldo -= valor;
+    public void saca(double valor) throws SaldoInsuficienteException{
+        if(this.saldo < valor){
+            throw new SaldoInsuficienteException("No tienes saldo");
         }
+            this.saldo -= valor;
     }
 
     public void transfiere(double monto, Cuenta cuentaDestino){
         if(this.saldo >= monto){
-            this.saca(monto);
+            try {
+                this.saca(monto);
+            } catch (SaldoInsuficienteException e) {
+                throw new RuntimeException(e);
+            }
             cuentaDestino.depositar(monto);
         }
 

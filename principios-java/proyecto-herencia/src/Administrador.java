@@ -5,6 +5,9 @@ public class Administrador extends Funcionario implements Autenticable  {
     private String clave;
     private AutenticacionUtil util;
 
+    public Administrador() {
+    }
+
     public Administrador(AutenticacionUtil util) {
         this.util = util;
     }

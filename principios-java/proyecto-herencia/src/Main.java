@@ -39,7 +39,15 @@ public class Main {
         Administrador admin = new Administrador();
 
         sistema.autentica(gerente1);
-        sistema.autentica(admin);
+        //sistema.autentica(admin);
+
+        Cuenta cuenta = new CuentaAhorros(123, 456);
+        cuenta.depositar(200);
+        try {
+            cuenta.saca(500);
+        } catch (SaldoInsuficienteException e) {
+            throw new RuntimeException(e);
+        }
 
         System.out.println();
         System.out.println("Bonificiación del funcionario = " + federico.getBonificacion());

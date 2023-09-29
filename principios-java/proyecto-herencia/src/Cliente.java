@@ -7,6 +7,9 @@ public class Cliente implements Autenticable{
     private String telefono;
     private AutenticacionUtil util;
 
+    public Cliente() {
+    }
+
     public Cliente(AutenticacionUtil util) {
         this.util = new AutenticacionUtil();
     }
