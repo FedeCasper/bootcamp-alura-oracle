@@ -20,17 +20,19 @@ public class Medico {
     private Long id;
     private String nombre;
     private String email;
+    private String telefono;
     private String documento;
     @Enumerated(EnumType.STRING)
-    private Especilidad especilidad;
+    private Especialidad especialidad;
     @Embedded
     private Direccion direccion;
 
     public Medico(DatosRegistroMedico datosRegistroMedico) {
         this.nombre = datosRegistroMedico.nombre();
         this.email = datosRegistroMedico.email();
+        this.telefono = datosRegistroMedico.telefono();
         this.documento = datosRegistroMedico.documento();
-        this.especilidad = datosRegistroMedico.especialidad();
-        this.direccion = new Direccion(datosRegistroMedico.datosDireccion());
+        this.especialidad = datosRegistroMedico.especialidad();
+        this.direccion = new Direccion(datosRegistroMedico.direccion());
     }
 }
