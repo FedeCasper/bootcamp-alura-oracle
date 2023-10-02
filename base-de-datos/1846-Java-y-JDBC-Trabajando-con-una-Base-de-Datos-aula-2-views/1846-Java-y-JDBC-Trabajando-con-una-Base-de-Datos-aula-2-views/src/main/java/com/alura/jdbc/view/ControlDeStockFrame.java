@@ -187,8 +187,15 @@ public class ControlDeStockFrame extends JFrame {
                     Integer id = (Integer) modelo.getValueAt(tabla.getSelectedRow(), 0);
                     String nombre = (String) modelo.getValueAt(tabla.getSelectedRow(), 1);
                     String descripcion = (String) modelo.getValueAt(tabla.getSelectedRow(), 2);
-
-                    this.productoController.modificar(nombre, descripcion, id);
+                    Integer cantidad = Integer.valueOf(modelo.getValueAt(tabla.getSelectedRow(), 3).toString());
+                    int filasModificadas;
+                    try {
+                        filasModificadas = this.productoController.modificar(nombre, descripcion, cantidad, id);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                        throw new RuntimeException(e);
+                    }
+                    JOptionPane.showMessageDialog(this, String.format("%d item modificado con éxito!", filasModificadas));
                 }, () -> JOptionPane.showMessageDialog(this, "Por favor, elije un item"));
     }
 
